@@ -22,6 +22,10 @@
       referrerpolicy="no-referrer"
     ></script>
 
+    <link rel="stylesheet" href="https://unpkg.com/splitting/dist/splitting.css" />
+    <script src="https://unpkg.com/splitting/dist/splitting.min.js"></script>
+
+
     <script src="./js/jquery-3.7.0.min.js"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
@@ -127,7 +131,7 @@
             </div>
 
             <div class="deco right">
-              <figure><img src="./img/clo-dec8.png" alt="" /></figure>
+              <figure><img src="./img/cloud-3.png" alt="" /></figure>
             </div>
 
             <figure class="con a-pic1">
@@ -225,7 +229,7 @@
       </button> -->
       </section>
 
-    <hr />
+    <hr/>
 
     <div class="bg-gra">
       <a href="./project.html" class="btn-move">
@@ -255,19 +259,31 @@
 
     <!-- <div class="bg-black"></div> -->
 
-    <section class="sec-bg sec1" data-bgcolor="#fff"></section>
-    <section class="sec-bg sec2" data-bgcolor="#d3d3d3"></section>
-    <section class="sec-bg sec3" data-bgcolor="#a9a9a9"></section>
-    <section class="sec-bg sec4" data-bgcolor="#0d110f"></section>
+    <section class="sec-bg sec1" data-bgcolor="#fff">
+<div class="sec-text1" data-splitting>Name</div>
+<div class="sec-text2" data-splitting>Oh Min Seok</div>
+    </section>
+ <!--    <section class="sec-bg sec2" data-bgcolor="#d3d3d3"></section> -->
+    <section class="sec-bg sec2" data-bgcolor="#a9a9a9">
+      <div class="sec-text3" data-splitting>Phone</div>
+      <div class="sec-text4" data-splitting>010-4947-5784</div>
+    </section>
+
+    <section class="sec-bg sec3" data-bgcolor="#0d110f">
+      <div class="sec-text5" data-splitting>Birth</div>
+      <div class="sec-text6" data-splitting>1999.03.31</div>
+    </section>
+    
+
     <!-- <section class="sec-bg sec" data-bgcolor='#fff'></section> -->
 
     <div class="contact">
       <div class="con-btext">Thanks For Watching</div>
-      <div class="con-stext">
+      <!-- <div class="con-stext">
         <div class="txt">이름 : 오민석</div>
         <div class="txt">전화번호 : 010-49**-****</div>
         <div class="txt">이메일 : dhalstj***@na***.***</div>
-      </div>
+      </div> -->
     </div>
 
     <button type="button" class="btn-top">TOP</button>

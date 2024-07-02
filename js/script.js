@@ -1,5 +1,9 @@
 $(function () {
+  //초기화
+  Splitting();
+
   // 대상을 변수에 저장
+
   const $window = $(window);
   const $aboutPic = $(".about-pic");
   const $pic1 = $aboutPic.find(".con.a-pic1");
@@ -17,24 +21,58 @@ $(function () {
 
   // about의 글(효과)
   const TL = gsap.timeline({
-    duration: 0.5,
-
     scrollTrigger: {
       trigger: ".sec.about",
       // markers: true,
-      start: "top 70%",
+      start: "top 20%",
+      end: "+=2000",
+      pin: true,
+      toggleActions: "play none none none", // 애니메이션이 한 번만 실행
     },
   });
 
-  TL.from(".h2", { y: 200, autoAlpha: 0, duration: 1, ease: "none" });
-  TL.from(".p1", { y: 200, autoAlpha: 0, duration: 1, ease: "none" }, "-=0.3");
-  TL.from(".p2", { y: 200, autoAlpha: 0, duration: 1, ease: "none" }, "-=0.3");
-  TL.from(".p3", { y: 200, autoAlpha: 0, duration: 1, ease: "none" }, "-=0.3");
-  TL.from(".p4", { y: 200, autoAlpha: 0, duration: 1, ease: "none" }, "-=0.3");
-  TL.from(".p5", { y: 200, autoAlpha: 0, duration: 1, ease: "none" }, "-=0.3");
-  TL.from(".p6", { y: 200, autoAlpha: 0, duration: 1, ease: "none" }, "-=0.3");
-  TL.from(".about-num h3", { y: 400, autoAlpha: 0, duration: 1, ease: "none" });
-  TL.from(".text-dec", { fadeIn: 400, autoAlpha: 0, duration: 2 }, "-=0.2");
+  TL.from(".h2", { y: 200, autoAlpha: 0, duration: 1, ease: "power2.out" });
+  TL.from(
+    ".p1",
+    { y: 200, autoAlpha: 0, duration: 1, ease: "power2.out" },
+    "-=0.8"
+  );
+  TL.from(
+    ".p2",
+    { y: 200, autoAlpha: 0, duration: 1, ease: "power2.out" },
+    "-=0.8"
+  );
+  TL.from(
+    ".p3",
+    { y: 200, autoAlpha: 0, duration: 1, ease: "power2.out" },
+    "-=0.8"
+  );
+  TL.from(
+    ".p4",
+    { y: 200, autoAlpha: 0, duration: 1, ease: "power2.out" },
+    "-=0.8"
+  );
+  TL.from(
+    ".p5",
+    { y: 200, autoAlpha: 0, duration: 1, ease: "power2.out" },
+    "-=0.8"
+  );
+  TL.from(
+    ".p6",
+    { y: 200, autoAlpha: 0, duration: 1, ease: "power2.out" },
+    "-=0.8"
+  );
+  TL.from(".about-num h3", {
+    y: 400,
+    autoAlpha: 0,
+    duration: 1,
+    ease: "power2.out",
+  });
+  TL.from(
+    ".text-dec",
+    { fadeIn: 400, autoAlpha: 0, duration: 1, ease: "power2.out" },
+    "-=0.3"
+  );
 
   // about의 글(효과)를 보기위한 핀 고정
   // const sectionEl = gsap.utils.toArray('.sec.about');
@@ -53,10 +91,12 @@ $(function () {
   const T3 = gsap.timeline({
     scrollTrigger: {
       trigger: ".initiate",
-      start: "top 30%",
-      end: "bottom top",
-      toggleActions: "play none none none",
+      start: "top 20%",
+      end: "+=4000",
+      /*     toggleActions: "play none none none",/ */
       markers: true,
+
+      pin: true,
     },
   });
 
@@ -72,7 +112,7 @@ $(function () {
     {
       x: 500,
       opacity: 0,
-      duration: 2,
+      duration: 1,
     },
     0
   ) // 시작 시간을 0으로 설정하여 첫 애니메이션과 동시에 시작
@@ -82,7 +122,7 @@ $(function () {
       {
         x: -500,
         opacity: 0,
-        duration: 2,
+        duration: 1,
       },
       0
     ); // 시작 시간을 0으로 설정하여 첫 애니메이션과 동시에 시작
@@ -94,13 +134,13 @@ $(function () {
 
   T3.from(".initiate", {
     clipPath: "circle(100% at 50% 50%)",
-    duration: 1.5,
+    duration: 1,
     ease: "circ.inOut",
   });
 
   T3.to(".initiate", {
     clipPath: "circle(100% at 50% 50%)",
-    duration: 1.5,
+    duration: 1,
     ease: "circ.inOut",
     onUpdate: function () {
       // 클립 패스 애니메이션과 동시에 배경 색상 변화 적용
@@ -122,6 +162,7 @@ $(function () {
   });
 
   T3.to([initImgone, initImgtwo], {
+    x: (index, target) => (target === initImgone ? 500 : -500),
     opacity: 0,
     duration: 1,
     onComplete: function () {
@@ -130,8 +171,9 @@ $(function () {
       initImgtwo.src = newSrctwo;
 
       T3.to([initImgone, initImgtwo], {
+        x: 0,
         opacity: 1,
-        duration: 2,
+        duration: 1,
       });
 
       T3.to(".initiate .init-txt-kn", {
@@ -167,12 +209,13 @@ $(function () {
 
   Tl.from(".deco bottom", { autoAlpha: 1, y: -300, duration: 0.8, delay: 2 });
 
+  const $aboutTwo = $(".about-two");
   //about영역에서는 벗어났지만 about의 관련된 사진 효과
   const TL2 = gsap.timeline({
     scrollTrigger: {
-      trigger: ".about-pic .con",
-      // markers: true,
-      start: "top 70%",
+      trigger: ".about-two",
+      /*   markers: true, */
+      start: "top 20%",
     },
     stagger: {
       each: 0.4,
@@ -186,24 +229,6 @@ $(function () {
   TL2.from(".about-pic .a-pic4", { autoAlpha: 0, y: 100, duration: 1 });
   TL2.add(move);
 
-  // const TLtwo = gsap.timeline({
-  //   pin: true,
-  //   scrub: 1,
-  //   // markers: true,
-  //   start: 'top 0%',
-  //   end: 'bottom+=3000 0%',
-  // });
-
-  // TLtwo.from('.bg-black', { autoAlpha: 0 });
-
-  // const t1 = gsap.timeline();
-
-  // t1.from('.con-btext', { y: 400, duration: 2, ease: 'none' });
-
-  // gsap.from('.about-title',{
-
-  // })
-
   // 이건 사진 효과에 따른 마우스 이동시 움직임
   let x = 0;
   let y = 0;
@@ -211,15 +236,15 @@ $(function () {
   let mx = 0;
   let my = 0;
 
-  const speed = 0.005;
+  const speed = 0.0005;
   const maxDistance = 50;
 
-  $aboutPic.on("mousemove", function (e) {
+  $aboutTwo.on("mousemove", function (e) {
     x = (e.pageX - $window.outerWidth() / 2) / maxDistance;
     y = (e.pageY - $window.outerHeight() / 2) / maxDistance;
   });
 
-  $aboutPic.on("mouseleave", function (e) {
+  $aboutTwo.on("mouseleave", function (e) {
     x = 0;
     y = 0;
   });
@@ -239,7 +264,7 @@ $(function () {
     // 대상에 값 적용
 
     $pic1.css({
-      transform: `translate(${-limitedMx}px, ${-limitedMy}px)`,
+      transform: `translate(${-limitedMy}px, ${-limitedMy}px)`,
     });
 
     $pic2.css({
@@ -247,7 +272,7 @@ $(function () {
     });
 
     $pic3.css({
-      transform: `translate(${-limitedMy}px, ${-limitedMy}px)`,
+      transform: `translate(${-limitedMy}px, ${limitedMx}px)`,
     });
 
     $pic4.css({
@@ -279,7 +304,6 @@ $(function () {
       },
     }
   );
-
   // 구름 양 옆으로
   let t2 = gsap.timeline({
     scrollTrigger: {
@@ -288,7 +312,8 @@ $(function () {
       end: "bottom bottom",
       scrub: 2,
       ease: "power4.inOut",
-      markers: true,
+
+      /*       markers: true, */
     },
     stagger: {
       each: 0.8,
@@ -318,30 +343,6 @@ $(function () {
     0
   );
 
-  // $(".clo-eff:nth-child(odd)").each((index, img) => {
-  //   gsap.from(img, {
-  //     x: 200,
-
-  //     scrollTrigger: {
-  //       trigger: img,
-  //       start: "top top",
-  //       scrub: 1,
-  //     },
-  //   });
-  // });
-
-  // $(".clo-eff:nth-child(even)").each((index, img) => {
-  //   gsap.from(img, {
-  //     x: -200,
-
-  //     scrollTrigger: {
-  //       trigger: img,
-  //       start: "top top",
-  //       scrub: 1,
-  //     },
-  //   });
-  // });
-
   const sectionEl = gsap.utils.toArray(".sec-bg");
   // console.log(sectionEl);
 
@@ -351,25 +352,141 @@ $(function () {
 
     const conbg = ScrollTrigger.create({
       trigger: item,
-      // markers: true,
-      start: "top bottom",
-      end: "bottom 10%",
+      markers: true,
+      start: "top 40%",
+      end: "+=1500",
       pin: true,
+      scrub: 2,
 
       onEnter: () => {
         gsap.to("body", {
           background: bgColor,
-          duration: 2,
+          duration: 1,
         });
       },
 
       onEnterBack: () => {
         gsap.to("body", {
           background: bgColor,
-          duration: 2,
+          duration: 1.5,
         });
       },
     });
+
+    // 섹션 요소들을 가져오기
+    const sections = document.querySelectorAll("section.sec-bg");
+
+    sections.forEach((section) => {
+      // 섹션 내의 각 텍스트 요소들을 선택
+      const textEls = section.querySelectorAll("[data-splitting]");
+
+      textEls.forEach((textEl) => {
+        // 텍스트를 문자 단위로 쪼개서 span 요소로 감싸기
+        const chars = Array.from(textEl.textContent).map((char) => {
+          const span = document.createElement("span");
+          span.classList.add("char");
+          span.textContent = char;
+          return span;
+        });
+
+        // 원래 텍스트를 지우고 새로 감싼 span 요소들을 추가
+        textEl.textContent = "";
+        chars.forEach((charEl) => textEl.appendChild(charEl));
+
+        // 각 문자(span 요소)들을 선택
+        const charEls = textEl.querySelectorAll(".char");
+
+        // GSAP을 이용한 애니메이션 설정
+        gsap.fromTo(
+          charEls,
+          {
+            y: -500, // 초기 위치
+            opacity: 0, // 초기 투명도
+          },
+          {
+            y: 0, // 최종 위치
+            opacity: 1, // 최종 투명도
+            stagger: 0.1, // 문자 사이의 지연 시간
+            duration: 1, // 애니메이션 기간
+            ease: "back.out(15)", // 애니메이션 이징 함수
+            scrollTrigger: {
+              trigger: section, // 트리거로 사용할 요소
+              start: "top 50%", // 시작 위치
+              end: "top 40%", // 종료 위치
+              scrub: 6, // 스크롤 이벤트에 따른 애니메이션 조정
+              onEnter: () => {
+                // 재미요소: 각 문자에 장식 클래스 추가
+                charEls.forEach((charEl) =>
+                  charEl.classList.add("char-animated")
+                );
+              },
+              onLeaveBack: () => {
+                // 재미요소: 각 문자에서 장식 클래스 제거
+                charEls.forEach((charEl) =>
+                  charEl.classList.remove("char-animated")
+                );
+              },
+            },
+          }
+        );
+      });
+    });
+
+    /*   //텍스트 애니메이션
+    const textEls = item.querySelectorAll(".char");
+    gsap.fromTo(
+      textEls,
+      {
+        y: -100,
+        opacity: 0,
+      },
+      {
+        y: 0,
+        opacity: 1,
+        stagger: 1,
+        duration: 0.5,
+        ease: "back.out(1.7)",
+        scrollTrigger: {
+          trigger: item,
+          start: "top 60%",
+          end: "top 40%",
+          scrub: 3,
+        },
+      }
+    ); */
+
+    /*     const textTl = gsap.timeline({
+      scrollTrigger: {
+        trigger: item,
+        start: "top 40%",
+        end: "bottom top",
+        scrub: 1,
+      },
+    });
+
+    const textEls = item.querySelectorAll("div");
+    textEls.forEach((textEl, index) => {
+      if (index % 2 === 0) {
+        // Animation for even (짝수) elements
+        textTl.from(textEl, {
+          x: -100, // Move from left
+          autoAlpha: 0,
+          duration: 1,
+          ease: "power3.out",
+          delay: index * 1, // Use delay to space out the animations
+        });
+      } else {
+        // Animation for odd (홀수) elements
+        textTl.from(textEl, {
+          x: 100, // Move from right
+          autoAlpha: 0,
+          duration: 1,
+          ease: "power3.out",
+          delay: index * 1, // Use delay to space out the animations
+        });
+      }
+    }); */
+
     $(".btn-top").on("click", () => {
       $("html , body")
         .stop()
@@ -386,6 +503,16 @@ $(function () {
         );
     });
   });
+
+  /*   const T4 = gsap.timeline({
+    scrollTrigger: sectionText,
+    markers: true,
+    start: "top top",
+    end: "",
+    pin: true,
+    scrub: 1,
+  }); */
+
   // const TL2 = gsap.timeline({
   //   scrollTrigger: {
   //     trigger: '.project .web-design > div',

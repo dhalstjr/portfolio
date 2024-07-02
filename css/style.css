@@ -170,9 +170,6 @@
   /* background: #ff0; */
   overflow: hidden; /* 블러 효과 넘어가는 거 잡기 */
   overflow: visible;
-
-  /* 3차원 효과를 위한 세팅 */
-  perspective: 600px;
 }
 /* 
 .about-dec {
@@ -220,15 +217,15 @@
 
 .text-dec {
   position: absolute;
-  top: 0%;
-  right: -2%;
-  width: 100%;
+  top: -15%;
+  right: -4%;
+  width: 45%;
   height: 28rem;
   /* border-radius: 0px; */
   background: #bbdefb;
   overflow: hidden;
 
-  filter: blur(120px);
+  filter: blur(100px);
   opacity: 0.9;
   z-index: -10;
 }
@@ -279,7 +276,7 @@
 .deco.bottom {
   width: 80rem;
   height: auto;
-  top: 70%;
+  top: 75%;
   left: 60%;
   pointer-events: none;
   opacity: 0.8;
@@ -288,18 +285,18 @@
 }
 
 .deco.right {
-  width: 68rem;
-  height: 25rem;
-  opacity: 0.6;
-  top: 12%;
-  left: 63%;
+  width: 82rem;
+  height: 33rem;
+  opacity: 1;
+  top: 10%;
+  left: 58%;
   mix-blend-mode: screen;
   pointer-events: none;
 }
 
 .initiate {
   position: relative;
-  margin-top: 20rem;
+  margin-top: 25rem;
   height: 50vh;
   background: #fff;
 
@@ -366,21 +363,32 @@
   z-index: 1;
 }
 .about-two {
-  margin-top: 25rem;
+  margin-top: 20rem;
   position: relative;
   top: 0;
   left: 0;
-  background: linear-gradient(
+  /*   background: linear-gradient(
     to bottom,
     #87cefa 0%,
-    /* 하늘색 (Sky Blue) 위 */ #ffffff 100%
+    하늘색 (Sky Blue) 위 #ffffff 100%
+  ); */
+
+  background: linear-gradient(
+    to bottom,
+    #3fa6fbcc 10%,
+    /* 연한 하늘색, 위쪽에 80% 투명도 */ #87ceeb00 40%,
+    /* 점점 투명해짐, 20% 위치에서 완전히 투명 */ #87ceeb00 80%,
+    /* 중앙까지 투명 */ #b8dcffcc 100% /* 다시 투명도가 낮아짐, 80% 투명도 */
   );
+
+  /* 3차원 효과를 위한 세팅 */
+  perspective: 600px;
 
   overflow: hidden;
 }
 .about-pic {
-  margin-top: 15rem;
-  padding: 20rem 10rem 10rem 10rem;
+  margin-top: 0rem;
+  padding: 20rem 10rem 20rem 10rem;
   position: relative;
   width: 100%;
   height: 200rem;
@@ -398,7 +406,7 @@
   font-weight: 300;
   color: #f5f5f5;
   margin-top: 12px;
-  text-shadow: 2px 4px 4px rgba(0, 0, 0, 0.2);
+  /*   text-shadow: 2px 4px 4px rgba(0, 0, 0, 0.2); */
 }
 
 .about-pic p:nth-of-type(1) {
@@ -437,12 +445,12 @@
 
 #project {
   margin-top: 30rem;
-  padding: 30rem 10rem 35rem 10rem;
+  padding: 20rem 10rem 0rem 10rem;
   position: relative;
   background: linear-gradient(
     to bottom,
-    #3fa6fbcc 0%,
-    /* 연한 하늘색, 위쪽에 80% 투명도 */ #87ceeb00 12%,
+    #3fa6fbcc 4%,
+    /* 연한 하늘색, 위쪽에 80% 투명도 */ #87ceeb00 16%,
     /* 점점 투명해짐, 20% 위치에서 완전히 투명 */ #87ceeb00 90%,
     /* 중앙까지 투명 */ #b8dcff00 100% /* 다시 투명도가 낮아짐, 80% 투명도 */
   );
@@ -464,8 +472,8 @@
 
 .web-project-one {
   margin-top: 20rem;
-  width: 108rem;
-  height: 64.8rem;
+  width: 90rem;
+  height: auto;
   border-radius: 12px;
   overflow: hidden;
   object-fit: cover;
@@ -477,7 +485,7 @@
 }
 
 .web-redesign {
-  margin-top: 20rem;
+  margin-top: 25rem;
   display: flex;
   flex-direction: column;
 }
@@ -513,7 +521,8 @@
 .pr-txt.one {
   /*   padding: 0 20px 0 0; */
   margin-left: auto;
-  margin-top: 5rem;
+  /*   margin-top: 5rem; */
+  margin-top: -2rem;
 }
 
 .pr-txt h5 {
@@ -553,13 +562,14 @@
 
 .pr-txt.two {
   display: block;
-  margin-top: 5rem;
+  /*   margin-top: 5rem; */
   margin-left: auto;
+  margin-top: -3rem;
 }
 
 .web-project-two {
   width: 83.4rem;
-  height: 78.6rem;
+  height: auto;
   border-radius: 12px;
   background: #000;
   overflow: hidden;
@@ -567,7 +577,7 @@
 }
 
 .app-design {
-  margin-top: 20rem;
+  margin-top: 25rem;
   display: flex;
   flex-direction: column;
 }
@@ -582,7 +592,7 @@
 }
 
 .web-title {
-  margin-top: 20rem;
+  margin-top: 25rem;
   margin-left: auto;
   text-align: center;
   width: 50%;
@@ -594,7 +604,7 @@
 }
 
 .app-project {
-  margin-top: 15rem;
+  /*   margin-top: 15rem; */
   width: 95.2rem;
   height: 80.2rem;
   background: #000 no-repeat 0 0 / cover;
@@ -605,8 +615,9 @@
 }
 
 .pr-txt.app {
-  margin-top: 5rem;
+  /*   margin-top: 5rem; */
   margin-right: auto;
+  margin-top: -4rem;
 }
 
 .bg-gra {
@@ -784,7 +795,7 @@
   /* transform: translateX(30px); */
 }
 
-.bg-black {
+/* .bg-black {
   width: 100%;
   height: 300rem;
   background: linear-gradient(
@@ -794,7 +805,7 @@
     #a9a9a9 65%,
     #0d110f 100%
   );
-}
+} */
 
 .contact {
   position: relative;
@@ -837,7 +848,67 @@
 
 /* 배경 깔기 */
 .sec-bg {
+  margin-top: 30rem;
   height: 100vh;
+  font-size: 4rem;
+  padding: 0 10rem;
+  overflow: hidden;
+  text-align: center;
+}
+
+.sec-bg.sec-text1 {
+}
+
+.sec-bg.sec1 {
+  font-size: 7.8rem;
+  display: flex;
+  font-weight: 800;
+  flex-direction: column;
+}
+
+.sec-bg.sec2 {
+  font-size: 9rem;
+  font-weight: 800;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.sec-bg.sec3 {
+  font-size: 8rem;
+  font-weight: 800;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+}
+
+.sec-bg .sec-text1,
+.sec-bg .sec-text3,
+.sec-bg .sec-text5 {
+  color: transparent; /* 내부를 투명하게 */
+  -webkit-text-stroke: 2px #000; /* 텍스트 스트로크 */
+  font-family: 'Archivo';
+  margin-right: auto;
+  margin-left: 55rem;
+}
+
+.sec-bg .sec-text2 {
+  color: transparent; /* 내부를 투명하게 */
+  -webkit-text-stroke: 2px #000; /* 텍스트 스트로크 */
+  font-family: 'Archivo';
+  margin-left: auto;
+  margin-top: 10rem;
+  margin-right: 55rem;
+}
+
+.sec-bg .sec-text4,
+.sec-bg .sec-text6 {
+  color: transparent; /* 내부를 투명하게 */
+  -webkit-text-stroke: 2px #000; /* 텍스트 스트로크 */
+  font-family: 'Noto Sans KR';
+  margin-left: auto;
+  margin-top: 10rem;
+  margin-right: 55rem;
 }
 
 .btn-top {
@@ -889,6 +960,21 @@
 
   pointer-events: none;
   user-select: none;
+}
+
+/* 마지막 splitting.js 을 이용한 재미요소 추가 */
+.char {
+  display: inline-block;
+  opacity: 0; /* 초기 투명도 */
+  transform: translateY(500px); /* 초기 위치를 위로 이동 */
+  font-size: 10rem;
+}
+
+/* 재미요소: 그림자와 색상 변화를 추가 */
+.char-animated {
+  color: transparent; /* 색상 변경 */
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.7); /* 그림자 효과 */
+  transform: translateY(0px) rotate(360deg); /* 회전 효과 */
 }
 
 /* .trail {
