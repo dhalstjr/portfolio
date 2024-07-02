@@ -1,5 +1,27 @@
 @charset 'utf-8';
 
+/* All project 버튼으로 이동  */
+.logo {
+  font-weight: 700;
+  font-size: 2rem;
+  color: #020202;
+}
+
+.logo a {
+  position: fixed;
+  top: 5%;
+  left: 88%;
+
+  width: 10rem;
+  height: 10rem;
+  border-radius: 50%;
+  background: #ffffffcc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
 .portfolio-page {
   height: 100vh;
   /*   background: linear-gradient(
@@ -14,7 +36,7 @@
   position: relative;
   overflow: hidden;
 }
-/* 
+/* 7
 .cloud-img {
   position: absolute;
 }
@@ -145,7 +167,7 @@
   position: relative;
 }
 .portfolio-txt h1 {
-  font-size: 12rem;
+  font-size: 10rem;
   font-weight: 800;
   font-family: 'Archivo';
   letter-spacing: 1.5px;
