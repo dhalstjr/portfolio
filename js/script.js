@@ -19,6 +19,22 @@ $(function () {
 
   gsap.registerPlugin(ScrollTrigger);
 
+  /* 첫효과 */
+  /*   gsap.to('.intro-section', {
+    clipPath: 'circle(150% at 50% 50%)',
+    ease: 'power4.out',
+    duration: 3,
+
+    scrollTrigger: {
+      trigger: '.intro-section',
+      start: 'top top',
+      end: '+=2000',
+      scrub: 2,
+      pin: true,
+      onLeave: () => gsap.set('.intro-section', { display: 'none' }), // 애니메이션 완료 후 섹션 숨기기
+    },
+  }); */
+
   // about의 글(효과)
   const TL = gsap.timeline({
     scrollTrigger: {
@@ -27,6 +43,7 @@ $(function () {
       start: 'top 20%',
       end: '+=2000',
       pin: true,
+      /*     scrub: 2, */
       toggleActions: 'play none none none', // 애니메이션이 한 번만 실행
     },
   });
@@ -73,20 +90,6 @@ $(function () {
     { fadeIn: 400, autoAlpha: 0, duration: 1, ease: 'power2.out' },
     '-=0.3'
   );
-
-  // about의 글(효과)를 보기위한 핀 고정
-  // const sectionEl = gsap.utils.toArray('.sec.about');
-  // console.log(sectionEl);
-
-  // sectionEl.forEach((sec) => {
-  //   ScrollTrigger.create({
-  //     trigger: sec,
-  //     markers: true,
-  //     start: 'top top',
-  //     pin: true,
-  //     pinspacing: false,
-  //   });
-  // });
 
   const T3 = gsap.timeline({
     scrollTrigger: {
@@ -282,6 +285,7 @@ $(function () {
     requestAnimationFrame(move);
   }
 
+  // 타임라임을 하나로 연결해야하는데 끊겨서 함. 고쳐야 원활하게 돌아감.
   //  사람이 나타나고 내려가는 효과
   gsap.fromTo(
     '.clo-man',
@@ -664,14 +668,14 @@ $(function () {
   /* All project button으로 이동. */
   t2.addLabel('end');
 
-  $('.logo').on('click', () => {
-    t2.seek('end');
-    /*     t2.progress(1); // 타임라인의 끝으로 이동 */
-    /*     ScrollTrigger.getById('myScrollTrigger').animation.progress(1); */
-    /*     let st = ScrollTrigger.getById('myScrollTrigger');
-    if (st) {
-      st.animation.progress(1);
-      st.scroll(st.end); // 스크롤을 강제로 끝으로 이동
-    } */
+  $('.logo').on('click', (e) => {
+    e.preventDefault();
+    const projectArea = $('#project').offset().top;
+    $('html, body').animate(
+      {
+        scrollTop: projectArea,
+      },
+      600
+    );
   });
 });

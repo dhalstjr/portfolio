@@ -1,4 +1,16 @@
 @charset 'utf-8';
+/* 맨처음 효과 */
+/* .intro-section {
+  height: 100vh;
+  background: black;
+  clip-path: circle(0% at 50% 50%);
+  transition: clip-path 1s ease-out;
+}
+
+.next-section {
+  height: 100vh;
+  background: white;
+} */
 
 /* All project 버튼으로 이동  */
 .logo {
@@ -11,15 +23,14 @@
   position: fixed;
   top: 5%;
   left: 88%;
-
   width: 10rem;
   height: 10rem;
   border-radius: 50%;
-  background: #ffffffcc;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
+  background: #ffffff80;
 }
 
 .portfolio-page {
