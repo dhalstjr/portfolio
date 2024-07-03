@@ -20,27 +20,53 @@ $(function () {
   gsap.registerPlugin(ScrollTrigger);
 
   /* 첫효과 */
-  /*   gsap.to('.intro-section', {
-    clipPath: 'circle(150% at 50% 50%)',
-    ease: 'power4.out',
-    duration: 3,
+  // gsap.to('.intro-overlay', {
+  //   clipPath: 'circle(150% at 50% 50%)',
+  //   ease: 'power4.out',
+  //   duration: 10,
+
+  //   scrollTrigger: {
+  //     trigger: '.intro-section',
+  //     start: 'top top',
+  //     end: '+=2000',
+  //     scrub: 5,
+  //     pin: true,
+  //     onLeave: () =>
+  //       gsap.to('.intro-section', {
+  //         autoAlpha: 0,
+  //         duration: 2,
+  //         onComplet: () => gsap.set('.intro-section', { display: 'none' }),
+  //       }), // 애니메이션 완료 후 섹션 숨기기
+  //   },
+  // });
+
+  // blur 효과 타임라임을 이용해서 주기
+  const t1 = gsap.timeline({
+    duration: 1,
 
     scrollTrigger: {
-      trigger: '.intro-section',
-      start: 'top top',
-      end: '+=2000',
-      scrub: 2,
-      pin: true,
-      onLeave: () => gsap.set('.intro-section', { display: 'none' }), // 애니메이션 완료 후 섹션 숨기기
+      trigger: '.portfolio-page',
+      markers: true,
+      start: 'top 20%',
+      end: 'bottom 50%',
+      toggleActions: 'play none none none',
+      /*   scrub: 1, */
     },
-  }); */
+  });
+  t1.from('.blur1', { autoAlpha: 0, duration: 1 }, '-=0.5');
+  t1.from('.blur2', { autoAlpha: 0, duration: 1 }, '-=0.5');
+  t1.from('.blur3', { autoAlpha: 0, duration: 1 }, '-=0.5');
+  t1.from('.blur4', { autoAlpha: 0, duration: 1 }, '-=0.5');
+  t1.from('.blur5', { autoAlpha: 0, duration: 1 }, '-=0.5');
+  t1.from('.blur6', { autoAlpha: 0, duration: 1 }, '-=0.5');
+  t1.from('.blur7', { autoAlpha: 0, duration: 1 }, '-=0.5');
 
   // about의 글(효과)
   const TL = gsap.timeline({
     scrollTrigger: {
       trigger: '.sec.about',
       // markers: true,
-      start: 'top 20%',
+      start: 'top 10%',
       end: '+=2000',
       pin: true,
       /*     scrub: 2, */
@@ -434,61 +460,6 @@ $(function () {
       });
     });
 
-    /*   //텍스트 애니메이션
-    const textEls = item.querySelectorAll(".char");
-    gsap.fromTo(
-      textEls,
-      {
-        y: -100,
-        opacity: 0,
-      },
-      {
-        y: 0,
-        opacity: 1,
-        stagger: 1,
-        duration: 0.5,
-        ease: "back.out(1.7)",
-        scrollTrigger: {
-          trigger: item,
-          start: "top 60%",
-          end: "top 40%",
-          scrub: 3,
-        },
-      }
-    ); */
-
-    /*     const textTl = gsap.timeline({
-      scrollTrigger: {
-        trigger: item,
-        start: "top 40%",
-        end: "bottom top",
-        scrub: 1,
-      },
-    });
-
-    const textEls = item.querySelectorAll("div");
-    textEls.forEach((textEl, index) => {
-      if (index % 2 === 0) {
-        // Animation for even (짝수) elements
-        textTl.from(textEl, {
-          x: -100, // Move from left
-          autoAlpha: 0,
-          duration: 1,
-          ease: "power3.out",
-          delay: index * 1, // Use delay to space out the animations
-        });
-      } else {
-        // Animation for odd (홀수) elements
-        textTl.from(textEl, {
-          x: 100, // Move from right
-          autoAlpha: 0,
-          duration: 1,
-          ease: "power3.out",
-          delay: index * 1, // Use delay to space out the animations
-        });
-      }
-    }); */
-
     $('.btn-top').on('click', () => {
       $('html , body')
         .stop()
@@ -671,11 +642,42 @@ $(function () {
   $('.logo').on('click', (e) => {
     e.preventDefault();
     const projectArea = $('#project').offset().top;
-    $('html, body').animate(
+    $('html, body').stop().animate(
       {
         scrollTop: projectArea,
       },
       600
     );
   });
+
+  /* project 이동 바로가기 버튼 로고 숨기고 보이게 */
+  const $logo = $('.logo');
+  const $portfolioPage = $('.portfolio-page');
+  const $contact = $('.contact');
+
+  console.log($logo, $contact, $portfolioPage);
+  /* 포트폴리오페이지와 콘택트 위치잡기 */
+  const portfolioPageouter =
+    $portfolioPage.offset().top + $portfolioPage.outerHeight();
+  const contactTop = $contact.offset().top;
+
+  $window.on('scroll', function () {
+    checkLogoVisibility();
+  });
+
+  function checkLogoVisibility() {
+    const scrollTop = $window.scrollTop();
+
+    // 로고 표시 여부
+    if (scrollTop < contactTop && scrollTop < portfolioPageouter) {
+      $logo.fadeIn();
+    } else if (scrollTop >= contactTop) {
+      $logo.fadeIn();
+    } else if (scrollTop >= portfolioPageouter) {
+      $logo.hide();
+    }
+  }
+
+  console.log(contactTop, portfolioPageouter);
+  /*   console.log('스크롤 값', scrollTopCt); */
 });

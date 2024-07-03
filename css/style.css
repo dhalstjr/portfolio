@@ -2,36 +2,53 @@
 /* 맨처음 효과 */
 /* .intro-section {
   height: 100vh;
-  background: black;
-  clip-path: circle(0% at 50% 50%);
-  transition: clip-path 1s ease-out;
-}
+  background: #000;
+  position: relative;
+} */
 
-.next-section {
-  height: 100vh;
-  background: white;
+/* .intro-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  clip-path: circle(0% at 50% 50%); 
 } */
 
 /* All project 버튼으로 이동  */
 .logo {
   font-weight: 700;
-  font-size: 2rem;
-  color: #020202;
-}
-
-.logo a {
+  font-size: 1.8rem;
+  color: #000;
   position: fixed;
   top: 5%;
   left: 88%;
-  width: 10rem;
-  height: 10rem;
+  width: 12rem;
+  height: 12rem;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
-  background: #ffffff80;
+  background: #ffffff50;
+
+  animation: rotateLogo 6s infinite linear;
+
+  /* 꾸미기 */
+  box-shadow: -10px -10px 10px #ffffff30, 0px 4px 10px #07548020,
+    10px 10px 5px #00a3ff05;
+
+  transition: 0.4s;
+
+  z-index: 10;
+
+  cursor: pointer;
 }
+
+/* .logo a:hover {
+  animation: none;
+} */
 
 .portfolio-page {
   height: 100vh;
@@ -86,7 +103,10 @@
 .blur-white .blur1,
 .blur-white .blur2,
 .blur-white .blur3,
-.blur-white .blur4 {
+.blur-white .blur4,
+.blur-white .blur5,
+.blur-white .blur6,
+.blur-white .blur7 {
   position: absolute;
   top: 0;
   left: 0;
@@ -106,17 +126,19 @@
 }
 
 .blur-white .blur2 {
-  width: 17rem;
+  width: 15rem;
   height: 15rem;
-  top: 5%;
-  left: 10%;
-  filter: blur(80px);
+  top: -32%;
+  left: 3%;
+  filter: blur(60px);
   /* opacity: 0.8; */
 }
 .blur-white .blur3 {
+  width: 14rem;
+  height: 14rem;
   top: 70%;
-  left: 12%;
-  filter: blur(40px);
+  left: 8%;
+  filter: blur(60px);
   /* opacity: 0.8; */
 }
 .blur-white .blur4 {
@@ -124,6 +146,33 @@
   height: 12rem;
   top: 15%;
   left: 20%;
+  filter: blur(50px);
+  /* opacity: 0.8; */
+}
+
+.blur-white .blur5 {
+  width: 12rem;
+  height: 12rem;
+  top: 60%;
+  left: 20%;
+  filter: blur(50px);
+  /* opacity: 0.8; */
+}
+
+.blur-white .blur6 {
+  width: 12rem;
+  height: 12rem;
+  top: 45%;
+  left: -5%;
+  filter: blur(50px);
+  /* opacity: 0.8; */
+}
+
+.blur-white .blur7 {
+  width: 12rem;
+  height: 12rem;
+  top: -25%;
+  left: 15%;
   filter: blur(50px);
   /* opacity: 0.8; */
 }
@@ -226,7 +275,7 @@
   color: #020202;
   margin-top: 12px;
 
-  text-shadow: 2px 4px 4px rgba(0, 0, 0, 0.2);
+  /*   text-shadow: 2px 4px 4px rgba(0, 0, 0, 0.2); */
 }
 
 .about-title p:nth-of-type(1) {
@@ -845,6 +894,7 @@
   width: 100%;
   height: 100vh;
   background: #000 url(../img/contact-pic.png) 50% 50% / cover;
+  overflow-y: auto;
 }
 
 .con-btext {
@@ -1008,6 +1058,15 @@
   color: transparent; /* 색상 변경 */
   text-shadow: 0 0 10px rgba(255, 255, 255, 0.7); /* 그림자 효과 */
   transform: translateY(0px) rotate(360deg); /* 회전 효과 */
+}
+
+@keyframes rotateLogo {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 /* .trail {
