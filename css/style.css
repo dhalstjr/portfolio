@@ -972,7 +972,7 @@
   -webkit-text-stroke: 2px #000; /* 텍스트 스트로크 */
   font-family: 'Archivo';
   margin-right: auto;
-  margin-left: 55rem;
+  margin-left: 30rem;
 }
 
 .sec-bg .sec-text2 {
@@ -981,7 +981,7 @@
   font-family: 'Archivo';
   margin-left: auto;
   margin-top: 10rem;
-  margin-right: 55rem;
+  margin-right: 30rem;
 }
 
 .sec-bg .sec-text4,

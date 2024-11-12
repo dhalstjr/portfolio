@@ -82,8 +82,11 @@ li {
   letter-spacing: 2px;
 }
 
-.pr-list {
-  margin-top: 100px;
+.all-design p,
+.web-design p {
+  font-size: 2.4rem;
+  margin-top: 0.8rem;
+  margin-left: 1rem;
 }
 
 .pr-list li a {
@@ -95,6 +98,7 @@ li {
   height: 200px;
   display: flex;
   align-items: center;
+  justify-content: center;
   border-bottom: 2px solid #999;
   transition: 0.4s;
 }
@@ -124,6 +128,40 @@ li {
 
 .pr-list li a:hover::after {
   background: url(../img/ico2.svg) no-repeat 0 0 / cover;
+}
+
+.home-btn {
+  position: fixed;
+  top: 10%;
+  right: 4%;
+  margin-right: auto;
+  display: flex;
+  width: 7.2rem;
+  height: 7.2rem;
+  border-radius: 50%;
+  background-color: #fff;
+
+  box-shadow: -10px -10px 10px #ffffff30, 0px 4px 10px #07548020,
+    10px 10px 5px #00a3ff05;
+
+  font-size: 1.7rem;
+  font-weight: 900;
+  font-family: "Archivo";
+  color: #ccc;
+
+  align-items: center;
+  justify-content: center;
+
+  z-index: 1;
+}
+
+.home-btn:hover {
+  background-color: #bbdefb;
+  color: #fff;
+
+  box-shadow: -10px -10px 30px #ffffff30, 10px 10px 30px #0d86ca17,
+    10px 10px 5px #00a3ff05, inset -10px -10px 10px #0d86ca20,
+    inset 10px 10px 10px #ffffff40;
 }
 
 /* 커서 */

@@ -53,13 +53,13 @@ $(function () {
       /*   scrub: 1, */
     },
   });
-  t1.from('.blur1', { autoAlpha: 0, duration: 1 }, '-=0.5');
-  t1.from('.blur2', { autoAlpha: 0, duration: 1 }, '-=0.5');
-  t1.from('.blur3', { autoAlpha: 0, duration: 1 }, '-=0.5');
-  t1.from('.blur4', { autoAlpha: 0, duration: 1 }, '-=0.5');
-  t1.from('.blur5', { autoAlpha: 0, duration: 1 }, '-=0.5');
-  t1.from('.blur6', { autoAlpha: 0, duration: 1 }, '-=0.5');
-  t1.from('.blur7', { autoAlpha: 0, duration: 1 }, '-=0.5');
+  t1.from('.blur1', { scale: 0.5, autoAlpha: 0, duration: 1 }, '-=0.5');
+  t1.from('.blur2', { scale: 0.5, autoAlpha: 0, duration: 1 }, '-=0.5');
+  t1.from('.blur3', { scale: 0.5, autoAlpha: 0, duration: 1 }, '-=0.5');
+  t1.from('.blur4', { scale: 0.5, autoAlpha: 0, duration: 1 }, '-=0.5');
+  t1.from('.blur5', { scale: 0.5, autoAlpha: 0, duration: 1 }, '-=0.5');
+  t1.from('.blur6', { scale: 0.5, autoAlpha: 0, duration: 1 }, '-=0.5');
+  t1.from('.blur7', { scale: 0.5, autoAlpha: 0, duration: 1 }, '-=0.5');
 
   // about의 글(효과)
   const TL = gsap.timeline({
