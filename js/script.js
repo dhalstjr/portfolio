@@ -40,17 +40,17 @@ $(function () {
   //   },
   // });
 
-  // blur 효과 타임라임을 이용해서 주기
-  const t1 = gsap.timeline({
+  // blur 효과 타임라임을 이용해서 주기 - 사용 X (가독성이 사라짐)
+  /*   const t1 = gsap.timeline({
     duration: 1,
 
     scrollTrigger: {
       trigger: ".portfolio-page",
-      /* markers: true, */
+      // markers: true,
       start: "top 20%",
       end: "bottom 50%",
       toggleActions: "play none none none",
-      /*   scrub: 1, */
+      //  scrub: 1,
     },
   });
   t1.from(".blur1", { scale: 0.5, autoAlpha: 0, duration: 1 }, "-=0.5");
@@ -60,7 +60,7 @@ $(function () {
   t1.from(".blur5", { scale: 0.5, autoAlpha: 0, duration: 1 }, "-=0.5");
   t1.from(".blur6", { scale: 0.5, autoAlpha: 0, duration: 1 }, "-=0.5");
   t1.from(".blur7", { scale: 0.5, autoAlpha: 0, duration: 1 }, "-=0.5");
-
+ */
   // about의 글(효과)
   const TL = gsap.timeline({
     scrollTrigger: {
@@ -69,7 +69,7 @@ $(function () {
       start: "top 10%",
       end: "+=2000",
       pin: true,
-      /*     scrub: 2, */
+      //    scrub: 2,
       toggleActions: "play none none none", // 애니메이션이 한 번만 실행
     },
   });

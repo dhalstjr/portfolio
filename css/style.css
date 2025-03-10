@@ -231,6 +231,7 @@
   font-weight: 800;
   font-family: "Archivo";
   letter-spacing: 1.5px;
+  text-shadow: 2px 4px 6px #00000030;
 }
 .portfolio-txt h1 strong {
   display: block;
@@ -245,6 +246,7 @@
   font-weight: 300;
   font-family: "Noto Sans KR";
   letter-spacing: 1.5px;
+  text-shadow: 2px 4px 4px #00000030;
 }
 
 .about {
